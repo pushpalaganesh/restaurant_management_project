@@ -11,6 +11,8 @@ NOTE: Conside this as a reference and follow this same coding structure or forma
 '''
 
 # Create your views here.
+
+
 class ItemView(APIView):
 
     def get(self, request):
@@ -26,11 +28,15 @@ class ItemView(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-def menu_list(request):
-    # Hardcoded menu items for now
-    menu_items = [
-        {"name": "Margherita Pizza", "price": 299},
-        {"name": "Veg Burger", "price": 149},
-        {"name": "Pasta Alfredo", "price": 249},
-    ]
-    return render(request, 'products/menu_list.html', {"menu_items": menu_items})
+class MenuListView(TemplateView):
+    template_name = 'products/menu_list.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        # Hardcoded menu items (will fetch from DB later)
+        context['menu_items'] = [
+            {"name": "Margherita Pizza", "price": 299},
+            {"name": "Veg Burger", "price": 149},
+            {"name": "Pasta Alfredo", "price": 249},
+        ]
+        return context
