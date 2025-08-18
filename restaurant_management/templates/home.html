@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Welcome to Our Restaurant</title>
+    <title>Restaurant Homepage</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #fafafa;
+            font-family: Arial, sans-serif, Helvetica;
+            background-color: #f9f9f9;
+            color: #333;
             margin: 0;
             padding: 0;
-            text-align: center;
+            
         }
         header {
-            background-color: #ff6347;
+            background-color: #2c3e50;
             color: white;
-            padding: 20px 0;
+            padding: 20px;
+            text-align: center;
         }
         h1 {
             margin: 0;
@@ -24,35 +26,37 @@
             margin-top: 10px;
             color: #333;
         }
-        .content {
-            margin: 40px auto;
-            max-width: 600px;
+        .container {
+            margin: 20px auto;
+            max-width: 800px;
             background: white;
             padding: 20px;
             border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.15);
         }
         footer {
-            background-color: #333;
-            color: white;
-            padding: 10px 0;
-            margin-top: 40px;
+            background: #2c3e50;
+            color: #ddd;
+            text-align: center;
+            padding: 15px;
+            margin-top: 30px;
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Delicious Eats Restaurant</h1>
-        <p>Serving happiness on every plate</p>
+        <h1>{{ restaurant_name }}</h1>
+        <p>Welcome to our restaurant</p>
     </header>
 
-    <div class="content">
-        <h2>Welcome!</h2>
+    <div class="container">
+        <h2>About Us</h2>
         <p>We are excited to have you here. Explore our menu and enjoy a delightful dining experience.</p>
+        <p><strong>Phone:</strong>{{ restaurant_phone }}</p>
     </div>
 
     <footer>
-        <p>&copy; 2025 Delicious Eats Restaurant</p>
+        <p>&copy: {{ restaurant_name }} - All Rights Reserved</p>
     </footer>
 </body>
 </html>
