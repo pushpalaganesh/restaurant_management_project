@@ -4,19 +4,20 @@
     <meta charset="UTF-8">
     <title>Restaurant Homepage</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
         footer {
             background-color: #333;
             color: #fff;
-            text-align: center;
             padding: 15px 0;
+            text-align: center;
             position: fixed;
             bottom: 0;
             width: 100%;
+            font-size: 14px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
         }
     </style>
 </head>
@@ -25,7 +26,9 @@
     <p>Welcome to our restaurant!</p>
 
     <footer>
-        <p>&copy; {{ current_year }} My Restaurant. All Rights Reserved.</p>
+        <div class="footer-content">
+            <p>&copy; 2025 Delicious Bites Restaurant. All rights reserved.</p>
+        </div>
     </footer>
 </body>
 </html>
