@@ -1,40 +1,37 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title> Contact Us - {{ restaurant_name }}</title>
-        <style>
-            body {
-            font-family: Arial, sans-serif;
-            margin: 40px;
-            background-color: #f8f9fa;
-            }
-            h1 {
-            text-align: center;
-            color: #333;
-            }
-            .contact-box {
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            max-width: 400px;
-            margin: auto;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            }
-            p {
-            font-sizes: 16px;
-            color: #555
-            }
-        </style>
-    </head>
-    <!-- Body Section -->
-    <body>
-        <h1>Contact Us</h1>
-        <div class="contact-box">
-            <p><strong>Restaurant:</strong> {{ restaurant_name }}</p>
-            <p><strong>Address:</strong> {{ address }}</p>
-            <p><strong>Phone:</strong> {{ phone }}</p>
-            <p><strong>Email:</strong> {{ email }}</p>
-        </div>
-    </body>
+<head>
+  <title>Contact Form</title>
+  <script>
+    function validateForm(event) {
+      // Get field values
+      let name = document.getElementById("name").value.trim();
+      let email = document.getElementById("email").value.trim();
 
+      // Check if fields are empty
+      if (name === "" || email === "") {
+        alert("Please fill in both Name and Email.");
+        event.preventDefault(); // Stop form submission
+        return false;
+      }
+
+      return true; // allow submission if valid
+    }
+  </script>
+</head>
+<body>
+  <h2>Contact Us</h2>
+  <form onsubmit="return validateForm(event)">
+    <label for="name">Name:</label><br>
+    <input type="text" id="name" name="name"><br><br>
+
+    <label for="email">Email:</label><br>
+    <input type="email" id="email" name="email"><br><br>
+
+    <label for="message">Message:</label><br>
+    <textarea id="message" name="message"></textarea><br><br>
+
+    <button type="submit">Submit</button>
+  </form>
+</body>
 </html>
