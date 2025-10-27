@@ -1,7 +1,9 @@
 from django.shortcuts import render
-from .models import Restaurant
+from .models import Restaurant,MenuCategory
 from django.http import HttpResponse
 import datetime
+from rest_framework.generics import ListAPIView
+from .serializers import MenuCategorySerializer
 
 # Create your views here.
 def homepage(request):
@@ -29,3 +31,7 @@ def homepage(request):
             "<h1>Oops! Something went wrong.</h1><p>Please try again later.</p>",
             status=500
         )
+
+class MenuCategoryListView(ListAPIView):
+    queryset = MenuCategory.objects.all()
+    serializer_class = MenuCategorySerializer
